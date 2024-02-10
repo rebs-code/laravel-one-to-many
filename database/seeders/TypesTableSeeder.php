@@ -14,7 +14,7 @@ class TypesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $types = ['Frontend', 'Backend', 'Fullstack', 'Data Analystics', 'UX/UI', 'Mobile', 'Data Science', 'Machine Learning', 'Artificial Intelligence'];
+        $types = ['Frontend', 'Backend', 'Fullstack', 'Data Analytics', 'UX/UI', 'Mobile', 'Data Science', 'Machine Learning', 'Artificial Intelligence'];
 
         foreach ($types as $type) {
 
