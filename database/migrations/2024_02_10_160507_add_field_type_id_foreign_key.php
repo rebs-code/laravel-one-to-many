@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        //we are inside the projects table
+        Schema::table('projects', function (Blueprint $table) {
+            $table->unsignedBigInteger('type_id')->nullable()->after('id');
+
+            //via the fk type_id, we are referencing the id field ON the types table
+            $table->foreign('type_id')->references('id')->on('types');
+        });
     }
 
     /**
@@ -19,6 +25,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('projects', function (Blueprint $table) {
+            //drop the foreign key
+            $table->dropForeign('projects_type_id_foreign');
+            //drop the column
+            $table->dropColumn('type_id');
+        });
     }
 };
