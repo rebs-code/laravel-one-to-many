@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class TypesTableSeeder extends Seeder
 {
@@ -12,6 +14,17 @@ class TypesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $my_types = ['Frontend', 'Backend', 'Fullstack', 'Data Analystics', 'UX/UI', 'Mobile', 'Data Science', 'Machine Learning', 'Artificial Intelligence'];
+        $types = ['Frontend', 'Backend', 'Fullstack', 'Data Analystics', 'UX/UI', 'Mobile', 'Data Science', 'Machine Learning', 'Artificial Intelligence'];
+
+        foreach ($types as $type) {
+
+            $new_type = new Type();
+
+            $new_type->type = $type;
+            //use the Str class to slugify the name
+            $new_type->slug = Str::of($type)->slug('-');
+
+            $new_type->save();
+        }
     }
 }
