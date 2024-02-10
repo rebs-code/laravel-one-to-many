@@ -20,7 +20,7 @@ class TypesTableSeeder extends Seeder
 
             $new_type = new Type();
 
-            $new_type->type = $type;
+            $new_type->name = $type;
             //use the Str class to slugify the name
             $new_type->slug = Str::of($type)->slug('-');
 
