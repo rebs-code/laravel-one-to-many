@@ -36,13 +36,15 @@
                     value="{{ old('tech_stack') }}">
             </div>
             {{-- select type --}}
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Select type</option>
-                @foreach ($types as $type)
-                    <option value="{{ $type->id }}">{{ $type->name }}</option>)
-                @endforeach
-                <option value="1">One</option>
-            </select>
+            <div class="mb-3">
+                <label for="inputType" class="form-label">Type</label>
+                <select class="form-select" name="type_id">
+                    <option selected>Select type</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>)
+                    @endforeach
+                </select>
+            </div>
             {{-- input repo link --}}
             <div class="mb-3">
                 <label for="inputRepo" class="form-label">Repo Link</label>

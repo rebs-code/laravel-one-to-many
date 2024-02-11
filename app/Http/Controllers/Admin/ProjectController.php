@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -42,7 +43,10 @@ class ProjectController extends Controller
         $project = new Project($data);
         //create a slug from the name
         $project->slug = Str::of($project->name)->slug('-');
-
+        //images
+        // if ($data['image']) {
+        //     $project->image = Storage::put('uploads', $data['image']);
+        // }
         // save the project to the database
         $project->save();
 

@@ -7,7 +7,7 @@
                 <h1>{{ $project->name }}</h1>
                 <p>{{ $project->description }}</p>
                 <p>{{ $project->tech_stack }}</p>
-                @if ($project->type->name)
+                @if ($project->type)
                     <p>{{ $project->type->name }}</p>
                 @endif
                 {{-- @if ($project->image)
