@@ -35,6 +35,14 @@
                 <input type="text" class="form-control" id="inputStack" name="tech_stack"
                     value="{{ old('tech_stack') }}">
             </div>
+            {{-- select type --}}
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Select type</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>)
+                @endforeach
+                <option value="1">One</option>
+            </select>
             {{-- input repo link --}}
             <div class="mb-3">
                 <label for="inputRepo" class="form-label">Repo Link</label>
