@@ -45,7 +45,8 @@
                         <td>
                             <a href="{{ route('admin.projects.show', $project) }}" role="button"
                                 class="btn btn-primary btn-sm me-2">Show</a>
-                            <a href="" role="button" class="btn btn-info btn-sm me-2 text-white">Edit</a>
+                            <a href="{{ route('admin.projects.edit', $project) }}" role="button"
+                                class="btn btn-info btn-sm me-2 text-white">Edit</a>
                             <a href="" role="button" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>

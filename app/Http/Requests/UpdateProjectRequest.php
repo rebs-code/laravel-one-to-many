@@ -31,7 +31,7 @@ class UpdateProjectRequest extends FormRequest
             'repo_link' => ['required', 'url'],
             'live_link' => ['url', 'nullable'],
             'image' => ['url', 'nullable'],
-            'slug' => ['nullable', 'string', 'max:255', 'unique:projects,slug'],
+            'slug' => ['nullable', 'string', 'max:255', Rule::unique('projects')->ignore($this->project)],
         ];
     }
 }
