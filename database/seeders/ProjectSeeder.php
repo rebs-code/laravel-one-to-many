@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 //import the Faker class
@@ -16,7 +17,12 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
+
+        Project::truncate();
+
         for ($i = 0; $i < 10; $i++) {
+
+            $type = Type::inRandomOrder()->first();
 
             $project = new Project();
 
@@ -28,6 +34,7 @@ class ProjectSeeder extends Seeder
             $project->image = $faker->imageUrl();
             //use the Str class to slugify the name
             $project->slug = Str::of($project->name)->slug('-');
+            $project->type_id = $type->id;
 
             $project->save();
         }

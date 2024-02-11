@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('type_id')->nullable()->after('id');
 
             //via the fk type_id, we are referencing the id field ON the types table
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('type_id')->references('id')->on('types')->nullOnDelete();
         });
     }
 
