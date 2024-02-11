@@ -32,6 +32,8 @@ class UpdateProjectRequest extends FormRequest
             'live_link' => ['url', 'nullable'],
             'image' => ['url', 'nullable'],
             'slug' => ['nullable', 'string', 'max:255', Rule::unique('projects')->ignore($this->project)],
+            //TYPE ID is nullable, but if it's not null, it must exist in the types table
+            'type_id' => ['nullable', 'exists:types,id'],
         ];
     }
 }
